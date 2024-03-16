@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalles de Transmisión</title>
+</head>
+<body>
+    <h1>Detalles de Transmisión</h1>
+    <p><strong>Nombre:</strong> {{ transmission.name }}</p>
+    <p><strong>Descripción:</strong> {{ transmission.description }}</p>
+    <p><strong>Fecha de creación:</strong> {{ transmission.creation_date }}</p>
+    <p><strong>Fecha de inicio:</strong> {{ transmission.transmission_start_date }}</p>
+    <p><strong>Hora de inicio:</strong> {{ transmission.start_time }}</p>
+    <p><strong>Finaliza: </strong> {{ transmission.end_time }}</p>
+    <iframe width="560" height="315" src="{{ transmission.link }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    <p><strong>Categoria: </strong> {{ transmission.categoria }}</p>
+    <p><strong>Etiquetas: </strong> {{ transmission.tags }}</p>
+    <p><strong>Creado por: </strong> {{ transmission.user }}</p>
+    <!-- Mostrar otros detalles de la transmisión si es necesario -->
+</body>
+</html>
