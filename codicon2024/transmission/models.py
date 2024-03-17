@@ -1,6 +1,6 @@
 from django.db import models
 from accounts.models import CustomUser
-
+import uuid
 class Categoria(models.Model):
     name = models.CharField(max_length=200)
     description = models.TextField(max_length=500)
@@ -29,6 +29,10 @@ class Transmission(models.Model):
     categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE, related_name='transmissions', null=True)
     tags = models.ManyToManyField(Tags, related_name='transmissions')
     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE, related_name='transmissions', null=True)
-    
-    def _str_(self) -> str:
-        return f" {self.name} {self.creation_date} "
+    short_id = models.CharField(max_length=10, unique=True, blank=True, editable=False)
+
+    def save(self, *args, **kwargs):
+        if not self.short_id:
+            # Genera un UUID y toma los primeros 8 caracteres como un ID corto
+            self.short_id = uuid.uuid4().hex[:8]
+        super(Transmission, self).save(*args, **kwargs)

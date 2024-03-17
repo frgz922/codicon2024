@@ -17,6 +17,9 @@
     <p><strong>Categoria: </strong> {{ transmission.categoria }}</p>
     <p><strong>Etiquetas: </strong> {{ transmission.tags }}</p>
     <p><strong>Creado por: </strong> {{ transmission.user }}</p>
+    
+    <p><strong>Compartir Transmisión:</strong> <a href="{% url 'transmission_detail_short' transmission.short_id %}" target="_blank">{{ request.build_absolute_uri|cut:request.path }}s/{{ transmission.short_id }}/</a></p>
+
     <!-- Mostrar otros detalles de la transmisión si es necesario -->
 </body>
 </html>

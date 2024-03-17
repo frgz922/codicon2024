@@ -20,3 +20,7 @@ def transmission_list(request):
 def transmission_detail(request, transmission_id):
     transmission = get_object_or_404(Transmission, id=transmission_id)
     return render(request, 'transmission/transmission_detail.html', {'transmission': transmission})
+
+def transmission_detail_short(request, short_id):
+    transmission = get_object_or_404(Transmission, short_id=short_id)
+    return render(request, 'transmission/transmission_detail.html', {'transmission': transmission})
